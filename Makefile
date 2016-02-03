@@ -1,5 +1,5 @@
 ARDUINO_LIB_PATH=~/Arduino/libraries
-LIB_LIST=Compass
+LIB_LIST=Magnetometer
 SOURCE_PATH=`pwd`
 
 all: 
