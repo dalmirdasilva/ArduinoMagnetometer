@@ -6,8 +6,22 @@
 # Datatypes (KEYWORD1)
 ########################################################################
 Magnetometer            KEYWORD1
+MagnetometerHMC5883L	KEYWORD1
+Register				KEYWORD1
+OperatingMode			KEYWORD1
+SamplesAveraged			KEYWORD1
+DataOutputRate			KEYWORD1
+MeasurementMode			KEYWORD1
+Gain					KEYWORD1
 
 ########################################################################
 # Methods and Functions (KEYWORD2)
 ########################################################################
 getHeading              KEYWORD2
+setOperatingMode		KEYWORD2
+setSamplesAveraged		KEYWORD2
+setDataOutputRate		KEYWORD2
+setMeasurementMode		KEYWORD2
+setGain					KEYWORD2
+getStatusRegister		KEYWORD2
+readSample				KEYWORD2
