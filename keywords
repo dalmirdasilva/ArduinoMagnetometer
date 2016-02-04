@@ -7,12 +7,17 @@
 ########################################################################
 Magnetometer            KEYWORD1
 MagnetometerHMC5883L	KEYWORD1
+MagnetometerHMC5983     KEYWORD1
 Register				KEYWORD1
 OperatingMode			KEYWORD1
 SamplesAveraged			KEYWORD1
 DataOutputRate			KEYWORD1
 MeasurementMode			KEYWORD1
 Gain					KEYWORD1
+SerialInterfaceMode     KEYWORD1
+LowestPowerMode         KEYWORD1
+SpeedMode               KEYWORD1
+TemperatureSensor       KEYWORD1
 
 ########################################################################
 # Methods and Functions (KEYWORD2)
@@ -25,3 +30,8 @@ setMeasurementMode		KEYWORD2
 setGain					KEYWORD2
 getStatusRegister		KEYWORD2
 readSample				KEYWORD2
+getTemperature          KEYWORD2
+setSerialInterfaceMode  KEYWORD2
+setLowestPowerMode      KEYWORD2
+setHighSpeedMode        KEYWORD2
+setTemperatureSensor    KEYWORD2

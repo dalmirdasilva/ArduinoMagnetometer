@@ -438,9 +438,9 @@ public:
      * The number in parenthesis indicates the default value of that bit.
      * Mode register default is 0x01.
      *
-     * @param om    Operating Mode
+     * @param operatingMode    Operating Mode
      */
-    void setOperatingMode(OperatingMode om);
+    void setOperatingMode(unsigned char operatingMode);
 
     /**
      * Virtual destructor
@@ -452,18 +452,18 @@ public:
      *
      * Select number of samples averaged (1 to 8) per measurement output.
      *
-     * @param sa    Number of samples averaged (1 to 8) per measurement output.
+     * @param samplesAveraged    Number of samples averaged (1 to 8) per measurement output.
      */
-    void setSamplesAveraged(SamplesAveraged sa);
+    void setSamplesAveraged(unsigned char samplesAveraged);
 
     /**
      * Sets data output rate.
      *
      * These bits set the rate at which data is written to all three data output registers.
      *
-     * @param dar       Rate.
+     * @param dataOutputRate       Rate.
      */
-    void setDataOutputRate(DataOutputRate dar);
+    void setDataOutputRate(unsigned char dataOutputRate);
 
     /**
      * Set measurement mode.
@@ -471,9 +471,9 @@ public:
      * These bits define the measurement flow of the device,
      * specifically whether or not to incorporate an applied bias into the measurement.
      *
-     * @param mm    Measurement mode.
+     * @param measurementMode    Measurement mode.
      */
-    void setMeasurementMode(MeasurementMode mm);
+    void setMeasurementMode(unsigned char measurementMode);
 
     /**
      * Sets gain.
@@ -487,9 +487,9 @@ public:
      *
      * Register: CRB
      *
-     * @param g     Gain.
+     * @param gain     Gain.
      */
-    void setGain(Gain g);
+    void setGain(unsigned char gain);
 
     /**
      * Gets the status register.

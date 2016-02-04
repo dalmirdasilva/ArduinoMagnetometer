@@ -1,5 +1,5 @@
 ARDUINO_LIB_PATH=~/Arduino/libraries
-LIB_LIST=Magnetometer MagnetometerHMC5883L
+LIB_LIST=Magnetometer MagnetometerHMC5883L MagnetometerHMC5983
 SOURCE_PATH=`pwd`
 
 all: 

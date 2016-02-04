@@ -17,25 +17,25 @@ double MagnetometerHMC5883L::getHeading() {
     return computeVectorAngle(x, y);
 }
 
-void MagnetometerHMC5883L::setOperatingMode(OperatingMode om) {
-    writeRegister(MagnetometerHMC5883L::MR, om & MAGNETOMETER_HMC5883L_MR_MASK);
+void MagnetometerHMC5883L::setOperatingMode(unsigned char operatingMode) {
+    writeRegister(MagnetometerHMC5883L::MR, operatingMode & MAGNETOMETER_HMC5883L_MR_MASK);
 }
 
-void MagnetometerHMC5883L::setSamplesAveraged(SamplesAveraged sa) {
-    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_MS_MASK, ((unsigned char) sa) << 5);
+void MagnetometerHMC5883L::setSamplesAveraged(unsigned char samplesAveraged) {
+    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_MS_MASK, samplesAveraged << 5);
 }
 
-void MagnetometerHMC5883L::setDataOutputRate(DataOutputRate dar) {
-    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_DO_MASK, ((unsigned char) dar) << 2);
+void MagnetometerHMC5883L::setDataOutputRate(unsigned char dataOutputRate) {
+    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_DO_MASK, dataOutputRate << 2);
 }
 
-void MagnetometerHMC5883L::setMeasurementMode(MeasurementMode mm) {
-    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_MA_MASK, (unsigned char) mm);
+void MagnetometerHMC5883L::setMeasurementMode(unsigned char measurementMode) {
+    configureRegisterBits(CRA, MAGNETOMETER_HMC5883L_CRA_MA_MASK, measurementMode);
 }
 
-void MagnetometerHMC5883L::setGain(Gain g) {
+void MagnetometerHMC5883L::setGain(unsigned char gain) {
     MagnetometerHMC5883L::CRBbits crb = {0};
-    crb.GN = (unsigned char) g;
+    crb.GN = gain;
     writeRegister(MagnetometerHMC5883L::CRB, crb.value);
 }
 
