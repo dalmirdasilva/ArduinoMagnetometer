@@ -8,7 +8,7 @@ Define magnetometer API.
 
 ### MagnetometerHMC5883L and MagnetometerHMC5983
 **Warning:**
-MagnetometerHMC5883L driver were written, but never tested. Use them at your own risk.
+Both drivers were written, but never tested. Use them at your own risk.
 Feel free to improve it and contribute sending a pull-request it you want to.
 
 ## How to install?
