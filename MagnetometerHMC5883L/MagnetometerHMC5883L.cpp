@@ -12,12 +12,8 @@ double MagnetometerHMC5883L::getHeading() {
     unsigned char buf[6];
     int16_t x = 0, y = 0;
     readSample(buf);
-    x = buf[0];
-    x <<= 8;
-    x |= buf[1];
-    y = buf[2];
-    y <<= 8;
-    y |= buf[3];
+    x = (buf[0] << 8) | buf[1];
+    y = (buf[2] << 8) | buf[3];
     return computeVectorAngle(x, y);
 }
 
