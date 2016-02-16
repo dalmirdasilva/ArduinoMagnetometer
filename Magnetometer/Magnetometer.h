@@ -12,6 +12,12 @@
 #include <math.h>
 #include <inttypes.h>
 
+/**
+ * Magnetometers are measurement instruments used for two general purposes:
+ * to measure the magnetization of a magnetic material like a ferromagnet,
+ * or to measure the strength and, in some cases, the direction of the
+ * magnetic field at a point in space.
+ */
 class Magnetometer {
 
 public:

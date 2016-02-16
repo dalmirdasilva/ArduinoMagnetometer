@@ -39,6 +39,7 @@ public:
     /**
      * Configuration Register A
      *
+     * <pre>
      * CRA6 to CRA5 (MA1 to MA0):
      *      Select number of samples averaged (1 to 8) per measurement output.
      *
@@ -78,6 +79,7 @@ public:
      *      11 -> This configuration is reserved.
      *
      * CRA default is 0x10
+     * </pre>
      */
     union CRAbits {
 
@@ -107,6 +109,7 @@ public:
      * CRB0 through CRB7 indicate bit locations, with CRB denoting the bits that are in the configuration register.
      * CRB7 denotes the first bit of the data stream. The number in parenthesis indicates the default value of that bit.
      *
+     * <pre>
      * CRB7 to CRB5 (GN2 to GN0):
      *      Gain Configuration Bits. These bits configure the gain for the device.
      *      The gain configuration is common for all channels.
@@ -125,6 +128,7 @@ public:
      *      These bits must be cleared for correct operation.
      *
      * CRB default is 0x20.
+     * </pre>
      */
     union CRBbits {
 
@@ -149,6 +153,7 @@ public:
      * with MR denoting the bits that are in the mode register. MR7 denotes the first bit of the data stream.
      * The number in parenthesis indicates the default value of that bit. Mode register default is 0x01.
      *
+     * <pre>
      * MR7 to MR2 0:
      *      Bit MR7 is set to 1 internally after each single-measurement operation. Set to 0 when configuring mode register.
      *
@@ -167,6 +172,7 @@ public:
      *          register is read or another measurement is performed.
      *      10 -> Idle Mode. Device is placed in idle mode.
      *      11 -> Idle Mode. Device is placed in idle mode.
+     * </pre>
      */
     union MRbits {
 
@@ -243,6 +249,7 @@ public:
      * The status register is an 8-bit read-only register. This register is used to indicate device status. SR0 through SR7
      * indicate bit locations, with SR denoting the bits that are in the status register. SR7 denotes the first bit of the data stream.
      *
+     * <pre>
      * SR7 to SR2 0:
      *      These bits are reserved.
      *
@@ -262,6 +269,7 @@ public:
      *      Cleared when device initiates a write to the data output registers and after one or more of the data output
      *      registers are written to. When RDY bit is clear it shall remain cleared for a 250 μs.
      *      DRDY pin can be used as an alternative to the status register for monitoring the device for measurement data.
+     * </pre>
      */
     union SRbits {
 
@@ -367,9 +375,9 @@ public:
      * The I2C bus is enabled for use by other devices on the network while in idle mode.
      */
     enum OperatingMode {
-        IDLE_MODE = 0x00,
-        CONTINUOUS_MEASUREMENT_MODE = 0x01,
-        SINGLE_MEASUREMENT_MODE = 0x02
+        CONTINUOUS_MEASUREMENT_MODE = 0x00,
+        SINGLE_MEASUREMENT_MODE = 0x01,
+        IDLE_MODE = 0x10
     };
 
     /**
@@ -504,8 +512,11 @@ public:
      * Reads the sample.
      *
      * Read all 6 bytes. If gain is changed then this data set is using previous gain.
+     *
+     * @param   buf     The where sample will be placed.
+     * @return          The number of bytes read.
      */
-    void readSample(unsigned char buf[6]);
+    int readSample(unsigned char buf[6]);
 
     /**
      * Gets the heading in degree.

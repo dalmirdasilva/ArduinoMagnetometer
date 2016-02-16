@@ -1,5 +1,4 @@
 #include "MagnetometerHMC5883L.h"
-#include <inttypes.h>
 
 MagnetometerHMC5883L::MagnetometerHMC5883L()
         : RegisterBasedWiredDevice(MAGNETOMETER_HMC5883L_DEVICE_ADDRESS) {
@@ -13,7 +12,7 @@ double MagnetometerHMC5883L::getHeading() {
     int16_t x = 0, y = 0;
     readSample(buf);
     x = (buf[0] << 8) | buf[1];
-    y = (buf[2] << 8) | buf[3];
+    y = (buf[4] << 8) | buf[5];
     return computeVectorAngle(x, y);
 }
 
@@ -45,7 +44,7 @@ MagnetometerHMC5883L::SRbits MagnetometerHMC5883L::getStatusRegister() {
     return sr;
 }
 
-void MagnetometerHMC5883L::readSample(unsigned char buf[6]) {
-    readRegisterBlock(DXRA, buf, 0x06);
+int MagnetometerHMC5883L::readSample(unsigned char buf[6]) {
+    return readRegisterBlock(DXRA, buf, 0x06);
 }
 

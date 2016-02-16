@@ -51,6 +51,7 @@ public:
      * with MR denoting the bits that are in the mode register. MR7 denotes the first bit of the data stream.
      * The number in parenthesis indicates the default value of that bit. Mode register default is 0x01.
      *
+     * <pre>
      * MR7 to MR2 0:
      *      Bit MR7 is set to 1 internally after each single-measurement operation. Set to 0 when configuring mode register.
      *
@@ -69,6 +70,7 @@ public:
      *          register is read or another measurement is performed.
      *      10 -> Idle Mode. Device is placed in idle mode.
      *      11 -> Idle Mode. Device is placed in idle mode.
+     * </pre>
      */
     union EMRbits {
 
@@ -94,6 +96,7 @@ public:
      * The status register is an 8-bit read-only register. This register is used to indicate device status. SR0 through SR7
      * indicate bit locations, with SR denoting the bits that are in the status register. SR7 denotes the first bit of the data stream.
      *
+     * <pre>
      * SR7 to SR5 0:
      *      These bits are reserved.
      *
@@ -121,6 +124,7 @@ public:
      *      Cleared when device initiates a write to the data output registers and after one or more of the data output
      *      registers are written to. When RDY bit is clear it shall remain cleared for a 250 μs.
      *      DRDY pin can be used as an alternative to the status register for monitoring the device for measurement data.
+     * </pre>
      */
     union SRbits {
 
@@ -203,9 +207,11 @@ public:
     /**
      * Set serial interface mode selection.
      *
+     * <pre>
      * SPI serial interface mode selection:
      *      0 -> 4-wire SPI interface
      *      1 -> 3-wire SPI interface
+     * </pre>
      *
      * @param serialInterfaceMode    SerialInterfaceMode option.
      */
